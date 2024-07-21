@@ -14,28 +14,32 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ * Settings code for the serlo theme
+ *
+ * @package   theme_serlo
+ * @author    Faisal Kaleem <serlo@adornis.de>
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2024 Serlo (https://adornis.de)
+ */
 namespace theme_serlo\output;
 
 use theme_boost\output\core_renderer as base_core_render;
 
-defined('MOODLE_INTERNAL') || die;
-
 /**
  * Renderers to align Moodle's HTML with that expected by Bootstrap
- *
- * @package    theme_boost
- * @copyright  2012 Bas Brands, www.basbrands.nl
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class core_renderer extends base_core_render
-{
-    public function firstview_fakeblocks(): bool
-    {
-        $first_view = parent::firstview_fakeblocks();
+class core_renderer extends base_core_render {
+    /**
+     * Summary of firstview_fakeblocks
+     * @return bool
+     */
+    public function firstview_fakeblocks(): bool {
+        $firstview = parent::firstview_fakeblocks();
         if ($this->page->course->id != SITEID) {
             $this->course_activitychooser(SITEID);
         }
-        return $first_view;
+        return $firstview;
     }
 
     /**
@@ -44,13 +48,12 @@ class core_renderer extends base_core_render
      * @param int $courseid The course id to fetch modules for.
      * @return string
      */
-    public function course_activitychooser($courseid)
-    {
+    public function course_activitychooser($courseid) {
         if (!$this->page->requires->should_create_one_time_item_now('core_course_modchooser')) {
             return '';
         }
 
-        // Build an object of config settings that we can then hook into in the Activity Chooser.
+        // Build an object of config settings that we can then hook into in the Activity Chooser!
         $chooserconfig = (object) [
             'tabmode' => get_config('core', 'activitychoosertabmode'),
         ];

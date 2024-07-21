@@ -15,18 +15,19 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Settings for Serlo theme
+ * Library code for the serlo theme
  *
- * @package    theme_serlo
- * @copyright  2024 YOUR NAME <your@email.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   theme_serlo
+ * @author    Faisal Kaleem <serlo@adornis.de>
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2024 Serlo (https://adornis.de)
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2024061200; // YYYYMMDDHH (Year, Month, Day, 24-hr time)
+$plugin->version = 2024061200; // YYYYMMDDHH (Year, Month, Day, 24-hr time)!
 $plugin->requires = 2023100400;
 $plugin->component = 'theme_serlo';
 $plugin->dependencies = [
-  'theme_boost' => 2023100900,
+    'theme_boost' => 2023100900,
 ];

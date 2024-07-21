@@ -15,18 +15,18 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Settings for Serlo theme
+ * Settings code for the serlo theme
  *
- * @package    theme_serlo
- * @copyright  2024 YOUR NAME <your@email.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   theme_serlo
+ * @author    Faisal Kaleem <serlo@adornis.de>
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2024 Serlo (https://adornis.de)
  */
 
 // This line protects the file from being accessed by a URL directly.
 defined('MOODLE_INTERNAL') || die();
 
-// $THEME is defined before this page is included and we can define settings by adding properties to this global object.
-
+// Variable $THEME is defined before this page is included and we can define settings by adding properties to this global object!
 // The first setting we need is the name of the theme. This should be the last part of the component name, and the same
 // as the directory name for our theme.
 $THEME->name = 'serlo';
@@ -53,7 +53,7 @@ $THEME->enable_dock = false;
 
 // This is an old setting used to load specific CSS for some YUI JS. We don't need it in Boost based themes because Boost
 // provides default styling for the YUI modules that we use. It is not recommended to use this setting anymore.
-$THEME->yuicssmodules = array();
+$THEME->yuicssmodules = [];
 
 // Most themes will use this rendererfactory as this is the one that allows the theme to override any other renderer.
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
@@ -63,11 +63,10 @@ $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 // pages in Moodle. Boost does not require these blocks because it provides other ways to navigate built into the theme.
 $THEME->requiredblocks = '';
 
-// This is a feature that tells the blocks library not to use the "Add a block" block. We don't want this in boost based themes because
+// This is a feature that tells the blocks library not to use the "Add a block" block.
+// We don't want this in boost based themes because
 // it forces a block region into the page when editing is enabled and it takes up too much room.
 $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
-
-# $THEME->haseditswitch = true;
 
 
 $THEME->scss = function ($theme) {
@@ -78,6 +77,3 @@ $THEME->scss = function ($theme) {
 $THEME->prescsscallback = 'theme_serlo_get_pre_scss';
 
 $THEME->extrascsscallback = 'theme_serlo_get_extra_scss';
-
-
-// $CFG->cachejs = false;
