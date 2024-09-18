@@ -36,9 +36,8 @@ class core_renderer extends base_core_render {
      */
     public function firstview_fakeblocks(): bool {
         $firstview = parent::firstview_fakeblocks();
-        if ($this->page->course->id != SITEID) {
-            $this->course_activitychooser(SITEID);
-        }
+        global $COURSE;
+        $this->course_activitychooser($COURSE->id);
         return $firstview;
     }
 
