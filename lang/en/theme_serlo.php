@@ -54,3 +54,4 @@ $string['region-side-pre'] = 'Right';
 $string['secondbutton'] = 'Second Button';
 $string['secondbutton_desc'] = 'This is a description for the second button.';
 $string['serlo'] = 'Serlo';
+$string['serlo_empty_editor'] = 'Serlo Editor';
