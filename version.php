@@ -26,8 +26,11 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->version = 2024061200; // YYYYMMDDHH (Year, Month, Day, 24-hr time)!
-$plugin->requires = 2023100400;
+$plugin->requires = 2022041900;
 $plugin->component = 'theme_serlo';
+$plugin->release   = '1.0.0';
+$plugin->maturity  = MATURITY_STABLE;
+
 $plugin->dependencies = [
     'theme_boost' => 2023100900,
 ];

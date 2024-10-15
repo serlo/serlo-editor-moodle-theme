@@ -25,19 +25,23 @@
 
 namespace theme_serlo\output;
 
-defined('MOODLE_INTERNAL') || die();
-
-use \format_topics\output\renderer;
-use \moodle_url;
+use format_topics\output\renderer;
+use moodle_url;
 use context_course;
 
 /**
  * Renderers format topics
  */
-class format_topics_renderer extends renderer
-{
-    function course_section_add_cm_control($course, $section, $sectionreturn = null, $displayoptions = array())
-    {
+class format_topics_renderer extends renderer {
+    /**
+     * Summary of course_section_add_cm_control
+     * @param mixed $course
+     * @param mixed $section
+     * @param mixed $sectionreturn
+     * @param mixed $displayoptions
+     * @return bool|string
+     */
+    public function course_section_add_cm_control($course, $section, $sectionreturn = null, $displayoptions = []) {
         // Check to see if user can add menus.
         if (
             !has_capability('moodle/course:manageactivities', context_course::instance($course->id))
@@ -55,7 +59,7 @@ class format_topics_renderer extends renderer
                 "return" => 0,
                 "type" => "empty",
                 "section" => $section,
-            ])
+            ]),
         ];
         $ajaxcontrol = $this->render_from_template('core_course/activitychooserbutton', $data);
 
